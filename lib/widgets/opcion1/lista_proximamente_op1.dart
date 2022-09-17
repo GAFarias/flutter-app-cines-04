@@ -19,7 +19,7 @@ class ListaProximamenteOp1 extends StatelessWidget {
           image: NetworkImage(listPelicula[index].urlPoster),
           //image: AssetImage('assets/imgs/no-image.jpg'),
           placeholder: const AssetImage('assets/imgs/no-image.jpg'),
-          fit: BoxFit.fitHeight,
+          fit: BoxFit.fill,
           //height: 200,
         ),
       ),

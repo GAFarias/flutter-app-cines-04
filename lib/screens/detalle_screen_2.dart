@@ -81,8 +81,19 @@ class _DetalleScreen2State extends State<DetalleScreen2>
               ),
         ),
         Padding(
-            padding: EdgeInsets.only(left: 5, top: 45),
-            child: CustomBackButton()),
+            padding: EdgeInsets.only(left: 15, right: 15, top: 45),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomBackButton(),
+                CustomPlayButton(),
+                // Chip(
+                //     avatar: Icon(Icons.play_arrow),
+                //     backgroundColor: kButton1,
+                //     elevation: 10,
+                //     label: Text("ver thriller"))
+              ],
+            )),
         Align(
           alignment: Alignment.bottomCenter,
           child: Stack(
@@ -100,7 +111,7 @@ class _DetalleScreen2State extends State<DetalleScreen2>
                           opacity: init ? 1 : 0,
                           duration: Duration(milliseconds: 500),
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 50.0),
+                            padding: const EdgeInsets.only(top: 40.0),
                             child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -116,6 +127,18 @@ class _DetalleScreen2State extends State<DetalleScreen2>
                                             Text("Publico",
                                                 style: textTheme.headline3),
                                             Text("ATP",
+                                                style: textTheme.headline3
+                                                    ?.copyWith(
+                                                        color:
+                                                            Color(0xffAE914B)))
+                                          ]),
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text("Genero",
+                                                style: textTheme.headline3),
+                                            Text("Comedia Drama ",
                                                 style: textTheme.headline3
                                                     ?.copyWith(
                                                         color:
@@ -150,7 +173,7 @@ class _DetalleScreen2State extends State<DetalleScreen2>
                                         left: 20, right: 20, bottom: 30),
                                     child: Text(widget.pelicula.descripcion,
                                         style: textTheme.bodyText1,
-                                        maxLines: 6,
+                                        maxLines: 10,
                                         overflow: TextOverflow.ellipsis),
                                   )
                                 ]),
@@ -285,6 +308,34 @@ class CustomBackButton extends StatelessWidget {
               child: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.white,
+              )),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class CustomPlayButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ClipOval(
+      child: Container(
+        color: Colors.grey[100]?.withOpacity(0.3),
+        child: InkWell(
+          child: SizedBox(
+              width: 100,
+              height: 40,
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
+                  ),
+                  Text("ver thriller")
+                ],
               )),
           onTap: () {
             Navigator.pop(context);
